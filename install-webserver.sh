@@ -3,11 +3,12 @@
 sudo apt-get update -y
 sudo apt-get install -y apache2 git php5 php5-curl mysql-client curl php5-mysql
 
-git clone https://github.com/jhajek/itmo-544-444-fall2015.git
+git clone https://github.com/ctian3/Application-Setup.git
 
-mv ./itmo-544-444-fall2015/images /var/www/html/images
-mv ./itmo-544-444-fall2015/index.html /var/www/html
-mv ./itmo-544-444-fall2015/*.php /var/www/html
+mv ./Application-Setup/images /var/www/html/images
+mv ./Application-Setup/index.html /var/www/html
+mv ./Application-Setup/page2.html /var/www/html
+mv ./Application-Setup/*.php /var/www/html
 
 curl -sS https://getcomposer.org/installer | sudo php &> /tmp/getcomposer.txt
 
