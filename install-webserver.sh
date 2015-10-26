@@ -1,11 +1,20 @@
 #!/bin/bash
 
 sudo apt-get update -y
-sudo apt-get install -y apache2 git
+sudo apt-get install -y apache2 git php5 php5-curl mysql-client curl php5-mysql
 
-git clone https://github.com/ctian3/Application-Setup.git
+git clone https://github.com/jhajek/itmo-544-444-fall2015.git
 
-mv ./Application-Setup/images /var/www/html/images
-mv ./Application-Setup/index.html /var/www/html
+mv ./itmo-544-444-fall2015/images /var/www/html/images
+mv ./itmo-544-444-fall2015/index.html /var/www/html
+mv ./itmo-544-444-fall2015/*.php /var/www/html
 
-echo "Done" > /tmp/hello.txt
+curl -sS https://getcomposer.org/installer | sudo php &> /tmp/getcomposer.txt
+
+sudo php composer.phar require aws/aws-sdk-php &> /tmp/runcomposer.txt
+
+sudo mv vendor /var/www/html &> /tmp/movevendor.txt
+
+sudo php /var/www/html/setup.php &> /tmp/database-setup.txt
+
+echo "Hello!" > /tmp/hello.txt
